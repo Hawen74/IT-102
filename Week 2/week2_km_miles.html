@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web Application Week 2</title>
+  </head>
+
+  <body>
+    <h1> Kilometers and Milesopy</h1>
+
+    <script>
+      let choice = prompt("Choose conversion type:\nK = Kilometers to Miles\nM = Miles to Kilometers");
+      document.write("You choice: " + choice);
+
+      if (choice === "K" || choice === "k") {
+        let km = Number(prompt("Enter the kilometers value: "));
+
+        document.write("<br> The kilometers value: " + km);
+        document.write("<br> Convert kilometers to miles: " + (km * 0.621371));
+
+        alert("Convert kilometers to miles: " + (km * 0.621371));
+
+      } else if (choice === "M" || choice === "m") {
+        let m = Number(prompt("Enter the miles value: "));
+
+        document.write("<br> The miles value: " + m);
+        document.write("<br> Convert miles to kilometers: " + (m / 0.621371));
+
+        alert("Convert miles to kilometers: " + (m / 0.621371));
+        
+      } else {
+        alert("Invalid choice! Please type 'K' or 'M'.");
+        location.reload();
+      }
+    </script>
+  </body>
+</html>
