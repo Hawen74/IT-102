@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>3_2</title>
+  </head>
+
+  <body>
+
+    <script>
+      squarSize = Number(prompt("Enter square size between 3 and 30"));
+
+      while (squarSize < 3 || squarSize > 30) {
+        squarSize = Number(prompt("Enter square size between 3 and 30"));
+      }
+
+      for (let i = 0; i < squarSize; i++) {
+        for (let j = 0; j < squarSize; j++) {
+          document.write("*");
+        }
+        document.write("<br>");
+      }
+
+      document.write("<br>Challenge:<br>");
+
+      //Challenge
+      for (let i = 0; i < squarSize; i++) {
+        for (let j = 0; j < squarSize; j++ ) {
+          if (i == 0 || j == 0 || i == squarSize - 1 || j == squarSize - 1) {
+            
+          } else {
+            document.write("\n");
+          }
+        }
+        document.write("<br>");
+      }5
+
+    </script>
+  </body>
+</html>
