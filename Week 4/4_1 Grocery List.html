@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Grocery List</title>
+  </head>
+  <body>
+    <h2>Grocery List</h2>
+    Enter grocery items separated by commas.
+    <br>
+    <textarea id="groceryInput" placeholder='Enter grocery items and sperate with comma ","when finished.'></textarea>
+    <br>
+    <button onclick="createGroceryList()">Create Grocery List</button>
+    <p id="groceryList"></p>
+    <p>Total items: <span id="totalItems"></span></p>
+
+  <script>
+    function createGroceryList() {
+      let userInput = document.getElementById("groceryInput").value;
+
+      //Check for empty input from user
+      if (userInput == "") {
+        alert("Please enter grocery items");
+        return;
+      } 
+    
+      // Split input string into array
+      let newArray = userInput.split(","); // become an array.
+
+      // Trim white space from each items by looping through array
+      for (let i = 0; i < newArray.length; i++) {
+        newArray[i] = newArray[i].trim();
+      }
+
+      // Sort groceryItems alphabetically
+      newArray.sort();
+      
+      // Display grocery list to webpage
+      let list = document.getElementById("groceryList");
+
+      let listHTML = "<ol>";
+      for (let i = 0; i < newArray.length; i++) {
+        listHTML += `<li>${newArray[i]}</li>`;
+      }
+      listHTML += "</ol>";
+      list.innerHTML = listHTML; // problem when using only one variable
+
+      document.getElementById("totalItems").innerHTML= `${newArray.length}`;
+    };
+
+  </script>
+  </body>
+</html>

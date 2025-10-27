@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Let's Make a Deal</title>
+  </head>
+  <body>
+    <h1>Let's Make a Deal</h1>
+    <hr>
+    <p>Choose a door:</p>
+    <select id="doorSelection">
+      <option value="0">Select a Door</option>
+      <option value="1">Door #1</option>
+      <option value="2">Door #2</option>
+      <option value="3">Door #3</option>
+    </select>
+    <button onclick="doorPrize()">Select</button>
+
+    <p id="prize">Good Luck!</p>
+
+    <script>
+      const prizes = {
+        door1: "New Car",
+        door2: "Goat",
+        door3: "Pencil"
+      };
+
+      function doorPrize() {
+        let prize = document.getElementById("prize");
+        let userChoice = document.getElementById("doorSelection").value;
+
+        switch (userChoice) {
+          case "1":
+            prize.innerHTML = `Your prize is a ${prizes.door1}`;
+            break;
+          case "2":
+            prize.innerHTML = `Your prize is a ${prizes.door2}`;
+            break;
+          case "3":
+            prize.innerHTML = `Your prize is a ${prizes.door3}`;
+            break;
+          default:
+            alert("Please select a door!");
+        }
+      }    
+    </script>
+  </body>
+</html>
