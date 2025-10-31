@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Card Game</title>
+  </head>
+
+  <body>
+    <p id="display_card"></p>
+
+    <script>
+      // Can i use class for this section?
+      function Card(suit, rank) {
+        this.suit = suit;
+        this.rank = rank;
+        this.isVisible = false
+        
+        this.show = function() {
+          this.isVisible = true;
+        }
+
+        this.hide = function() {
+          this.isVisible = false;
+        }
+      }
+
+      let card1 = new Card("Spade", "Ace");
+      let card2 = new Card("Heart", "King");
+
+      function toggleVisibility(cardNumber) {
+        let card;
+        if (cardNumber === 1) {
+          card = card1;
+        } else {
+          card = card2;
+        }
+
+        if (card.isVisible) {
+          card.hide();
+        } else {
+          card.show();
+        }
+
+        displayCards();
+      }
+
+      // display 2 cards
+      function displayCards() {
+        let displayCard = document.getElementById("display_card");
+        displayCard.innerHTML = `
+          Card 1: <br>
+          - Suit: ${card1.suit} <br>
+          - Rank: ${card1.rank} <br>
+          - Isvisible: ${card1.isVisible} <br>
+          <button onclick="toggleVisibility(1)">Change Visibility</button>
+
+          <br>
+
+          Card 2: <br>
+          - Suit: ${card2.suit} <br>
+          - Rank: ${card2.rank} <br>
+          - Isvisible: ${card2.isVisible} <br>
+          <button onclick="toggleVisibility(2)">Change Visibility</button>
+        `;
+      }
+
+      displayCards();
+    </script>
+  </body>
+</html>
